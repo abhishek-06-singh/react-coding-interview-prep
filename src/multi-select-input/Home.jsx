@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Tag } from "./Tag";
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestion, setSuggestion] = useState([]);
@@ -37,16 +38,11 @@ const Home = () => {
         <span className="  flex space-x-3 flex-wrap">
           {selectedUser?.map((user, index) => {
             return (
-              <span
-                key={user.email}
-                className="flex space-x-3 items-center p-2 cursor-pointer bg-black/50 text-white rounded-full"
-                onClick={() => handleSelectedUser(user)}
-              >
-                <img className="h-5 w-5 " src={user.image} alt="" />
-                <span className="text-xs">
-                  {user.firstName} {user.lastName}
-                </span>
-              </span>
+              <Tag
+                img={user.image}
+                firstname={user.firstName}
+                lastname={user.lastName}
+              />
             );
           })}
         </span>
@@ -60,6 +56,7 @@ const Home = () => {
           />
         </div>
       </div>
+
       <div className=" justify-center items-center mx-auto">
         <ul className=" bg-black/5 justify-center rounded-t-3xl">
           {suggestion?.users?.map((user, index) => {
