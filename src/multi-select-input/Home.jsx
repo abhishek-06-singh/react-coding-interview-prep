@@ -6,7 +6,9 @@ const Home = () => {
   const [suggestion, setSuggestion] = useState([]);
   const [selectedUser, setSelectedUser] = useState([]);
   const [selectedUserSet, setSelectedUserSet] = useState(new Set());
+
   console.log("selectedUser", selectedUserSet);
+
   const fetchUsers = async () => {
     if (searchTerm.trim() === "") {
       setSuggestion([]);
@@ -32,6 +34,7 @@ const Home = () => {
     setSuggestion([]);
     setSearchTerm("");
   };
+
   return (
     <div className="p-20 relative">
       <div className="flex flex-wrap items-center gap-3 p-2 border-2 border-indigo-400 rounded-full w-12/12">
@@ -46,6 +49,7 @@ const Home = () => {
             );
           })}
         </span>
+
         <div>
           <input
             type="text"
